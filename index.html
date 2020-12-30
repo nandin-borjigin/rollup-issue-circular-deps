@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #output {
+      color: red;
+      background-color: antiquewhite;
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <pre id="output"></pre>
+  <script>
+    window.addEventListener('error', function (event) {
+      output.innerText = event.error.stack
+      console.log(event)
+    })
+  </script>
+  <script src="./bundle.js"></script>
+</body>
+</html>
