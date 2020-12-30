@@ -30,13 +30,13 @@ miller-rabin <- diffie-hellman
 
 are all included in the final bundle but the ordering is somehow buggy and causes an error in runtime.
 
-Actually, `brorand` requires `crypto-browserify` inside a function so the former doesn't need the latter to be defined before it in module scope. So the correct order should be 
+Actually, `brorand` requires `crypto-browserify` [inside a function](https://github.com/indutny/brorand/blob/ddc4f9344287769d7e2c2ea987d26bbeec5456b4/index.js#L56) so the former doesn't need the latter to be defined before it in module scope. So the correct order should be 
 1. brorand
 2. miller-rabin
 3. diffie-hellman
 4. crypto-browserify
 
-I understand that circular dependency is neither fully supported nor intented to fully support in rollup. While `brorand` requires `crypto-browserify` inside a function, the latter is collected as a static dependency of `brorand`. I'm seeing this as a bug, what do you think about it?
+I understand that circular dependency is neither fully supported nor intented to be fully supported in rollup. While `brorand` requires `crypto-browserify` inside a function, the latter is collected as a static dependency of `brorand`. I'm seeing this as a bug, what do you think about it?
 
 
 ## Steps to reproduce
